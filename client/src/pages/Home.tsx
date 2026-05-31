@@ -16,7 +16,7 @@ export default function Home() {
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <Trophy className="w-6 h-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">Academia de Jiu-Jitsu</h1>
+            <h1 className="text-xl font-bold text-foreground">Jiu-Jitsu Reformado</h1>
           </div>
           <div className="flex items-center gap-4">
             <Button variant="ghost" onClick={() => navigate("/dashboard")}>
@@ -38,7 +38,7 @@ export default function Home() {
         <div className="container mx-auto max-w-4xl text-center space-y-8">
           <div className="space-y-4">
             <h2 className="text-5xl md:text-6xl font-bold text-foreground">
-              Sistema de Gerenciamento de Jiu-Jitsu
+              Gerenciamento de Presença e Pontuação Jiu-Jitsu Reformados
             </h2>
             <p className="text-xl text-muted-foreground">
               Controle de presença, ranking de pontuação e gestão completa da sua turma
