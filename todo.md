@@ -19,21 +19,21 @@
 - [x] Procedure: registrar ponto (presença, devocional, campeonato, visitante, vitória)
 - [x] Procedure: obter ranking geral
 - [x] Procedure: agendar devocional
-- [x] Procedure: obter escala de devocionais (semanal/mensal)
+- [ ] Procedure: obter escala de devocionais (semanal/mensal completo)
 - [x] Procedure: registrar competição
 - [x] Procedure: inscrever aluno em competição
-- [x] Procedure: registrar resultado de luta
+- [ ] Procedure: registrar resultado de luta (com atualização de inscrição)
 - [x] Procedure: criar/editar/deletar anúncio
-- [ ] Procedure: obter alunos com baixa frequência (alertas)
-- [ ] Procedure: obter dados para gráficos de frequência
+- [x] Procedure: obter alunos com baixa frequência (alertas)
+- [ ] Procedure: obter dados para gráficos de frequência (3 meses)
 
 ## Frontend - Dashboard Público
 - [x] Página inicial do dashboard público
 - [x] Componente: Ranking geral de pontuação (tabela interativa)
-- [ ] Componente: Frequência mensal por aluno
+- [x] Componente: Frequência mensal por aluno (criado, não integrado)
 - [x] Componente: Próximos eventos agendados
 - [x] Componente: Mural de avisos/comunicados
-- [ ] Componente: Gráfico de frequência (últimos 3 meses)
+- [ ] Componente: Gráfico de frequência (últimos 3 meses - em progresso)
 - [x] Design elegante e sofisticado com cores e tipografia refinada
 
 ## Frontend - Painel Administrativo
@@ -43,10 +43,10 @@
 - [x] Página: Registrar presença (formulário diário)
 - [x] Página: Escala de devocionais (agendamento visual)
 - [x] Página: Gerenciar competições e inscrições
-- [ ] Página: Registrar resultados de lutas
+- [ ] Página: Registrar resultados de lutas (em progresso)
 - [x] Página: Gerenciar anúncios
-- [ ] Página: Visualizar alertas de frequência
-- [ ] Página: Relatórios e estatísticas
+- [x] Página: Visualizar alertas de frequência (criado, refatorar)
+- [ ] Página: Relatórios e estatísticas (em progresso)
 
 ## Sistema de Pontuação
 - [x] Implementar cálculo automático de pontos
@@ -65,16 +65,16 @@
 - [x] Testar autenticação e autorização
 
 ## Hospedagem & Deployment
-- [ ] Configurar domínio gratuito
-- [ ] Preparar para publicação na Manus
-- [ ] Criar checkpoint final
+- [x] Configurar domínio gratuito (Manus)
+- [x] Preparar para publicação na Manus
+- [ ] Publicar/Deploy final
 
 ## Design & UX
 - [x] Refinar paleta de cores (elegante e sofisticado)
-- [ ] Aplicar tipografia refinada
-- [ ] Adicionar animações suaves
+- [x] Aplicar tipografia refinada
+- [ ] Adicionar animações suaves (em progresso)
 - [x] Garantir responsividade mobile
-- [ ] Testar acessibilidade
+- [ ] Testar acessibilidade (em progresso)
 
 ## Documentação
 - [ ] Atualizar README com instruções de uso
