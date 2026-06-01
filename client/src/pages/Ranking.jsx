@@ -1,9 +1,15 @@
-// src/pages/Ranking.jsx
 import React from 'react';
 
+interface Atleta {
+  id: number;
+  nome: string;
+  pontos: number;
+  faixa: string;
+  foto: string;
+}
+
 export default function Ranking() {
-  // Dados mockados para exemplo
-  const atletas = [
+  const atletas: Atleta[] = [
     { id: 1, nome: "Carlos Silva", pontos: 450, faixa: "Azul", foto: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=100&q=80" },
     { id: 2, nome: "Lucas Souza", pontos: 420, faixa: "Branca", foto: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=100&q=80" },
     { id: 3, nome: "Amanda Costa", pontos: 390, faixa: "Roxa", foto: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=100&q=80" }

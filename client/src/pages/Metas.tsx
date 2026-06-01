@@ -1,14 +1,21 @@
-// src/pages/Metas.jsx
 import React from 'react';
 
+interface Meta {
+  id: number;
+  titulo: string;
+  arrecadado: number;
+  alvo: number;
+  descricao: string;
+}
+
 export default function Metas() {
-  const metas = [
+  const metas: Meta[] = [
     { id: 1, titulo: "Compra de Novos Tatames", arrecadado: 1200, alvo: 3000, descricao: "Ampliação do espaço de treino para comportar mais crianças." },
     { id: 2, titulo: "Cestas Básicas Mensais", arrecadado: 850, alvo: 1000, descricao: "Doação para as famílias dos alunos cadastrados em vulnerabilidade." },
     { id: 3, titulo: "Kimonos para Doação", arrecadado: 400, alvo: 1500, descricao: "Compra de armaduras oficiais para quem não tem condições de comprar." }
   ];
 
-  const calcularPorcentagem = (atual, total) => Math.min((atual / total) * 100, 100);
+  const calcularPorcentagem = (atual: number, total: number) => Math.min((atual / total) * 100, 100);
 
   return (
     <div style={{ padding: '20px', maxWidth: '900px', margin: '0 auto' }}>
@@ -27,7 +34,6 @@ export default function Metas() {
                 R$ {meta.arrecadado} <span style={{ fontWeight: 'normal', color: '#777' }}>de R$ {meta.alvo}</span>
               </div>
               
-              {/* Barra de progresso */}
               <div style={{ width: '100%', backgroundColor: '#e0e0e0', height: '10px', borderRadius: '5px', overflow: 'hidden', marginBottom: '15px' }}>
                 <div style={{ width: `${pct}%`, backgroundColor: '#28a745', height: '100%', transition: 'width 0.5s ease-in-out' }}></div>
               </div>
