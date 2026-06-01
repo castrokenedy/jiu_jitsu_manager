@@ -1,20 +1,18 @@
-// src/App.jsx (Exemplo de roteamento)
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './pages/Home';
-import Dashboard from './pages/Dashboard';
-import Ranking from './pages/Ranking';
-import Metas from './pages/Metas';
+import { Switch, Route } from "wouter";
+import Home from "./pages/Home";
+import Ranking from "./pages/Ranking";
+import Metas from "./pages/Metas";
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/ranking" element={<Ranking />} />
-        <Route path="/metas" element={<Metas />} />
-      </Routes>
-    </Router>
+    <Switch>
+      <Route path="/" component={Home} />
+      <Route path="/ranking" component={Ranking} />
+      <Route path="/metas" component={Metas} />
+      {/* Mantenha suas rotas antigas de dashboard aqui abaixo se necessário */}
+      <Route>404 - Página Não Encontrada</Route>
+    </Switch>
   );
 }
+
 export default App;
