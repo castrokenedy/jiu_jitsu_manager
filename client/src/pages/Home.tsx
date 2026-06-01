@@ -1,182 +1,64 @@
-import { useAuth } from "@/_core/hooks/useAuth";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Trophy, Users, Calendar, Zap, ArrowRight } from "lucide-react";
-import { getLoginUrl } from "@/const";
-import { useLocation } from "wouter";
+// src/pages/Home.jsx
+import React, { useState } from 'react';
 
 export default function Home() {
-  const { user, isAuthenticated } = useAuth();
-  const [, navigate] = useLocation();
+  const [formData, setFormData] = useState({ nome: '', telefone: '', idade: '' });
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Aqui você integrará com seu banco de dados ou API
+    alert(`Obrigado pelo interesse, ${formData.nome}! Entraremos em contato em breve.`);
+    setFormData({ nome: '', telefone: '', idade: '' });
+  };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900">
-      {/* Navigation */}
-      <nav className="bg-white dark:bg-slate-900 shadow-sm border-b border-border">
-        <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <Trophy className="w-6 h-6 text-primary" />
-            <h1 className="text-xl font-bold text-foreground">Jiu-Jitsu Reformado</h1>
-          </div>
-          <div className="flex items-center gap-4">
-            <Button variant="ghost" onClick={() => navigate("/dashboard")}>
-              Dashboard
-            </Button>
-            {isAuthenticated && user?.role === "admin" ? (
-              <Button onClick={() => navigate("/admin")}>Painel Admin</Button>
-            ) : (
-              <Button onClick={() => window.location.href = getLoginUrl()}>
-                Login Professores
-              </Button>
-            )}
-          </div>
-        </div>
-      </nav>
-
+    <div style={{ fontFamily: 'Arial, sans-serif', color: '#333', backgroundColor: '#f9f9f9' }}>
       {/* Hero Section */}
-      <section className="py-20 px-4">
-        <div className="container mx-auto max-w-4xl text-center space-y-8">
-          <div className="space-y-4">
-            <h2 className="text-5xl md:text-6xl font-bold text-foreground">
-              Gerenciamento de Presença e Pontuação Jiu-Jitsu Reformados
-            </h2>
-            <p className="text-xl text-muted-foreground">
-              Controle de presença, ranking de pontuação e gestão completa da sua turma
-            </p>
-          </div>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" onClick={() => navigate("/dashboard")} className="gap-2">
-              Ver Dashboard Público
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-            {!isAuthenticated && (
-              <Button size="lg" variant="outline" onClick={() => window.location.href = getLoginUrl()}>
-                Acesso Administrativo
-              </Button>
-            )}
-          </div>
-        </div>
+      <section style={{ padding: '60px 20px', textAlign: 'center', background: 'linear-gradient(135deg, #1e3c72 0%, #2a5298 100%)', color: 'white' }}>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '10px' }}>Projeto Jiu-Jitsu Para Todos</h1>
+        <p style={{ fontSize: '1.2rem', marginBottom: '30px' }}>Transformando vidas através do esporte de forma 100% gratuita. Uma iniciativa da nossa comunidade/igreja.</p>
+        <a href="#cadastro" style={{ padding: '12px 24px', backgroundColor: '#ffcc00', color: '#1e3c72', fontWeight: 'bold', borderRadius: '5px', textDecoration: 'none' }}>Quero Participar</a>
       </section>
 
-      {/* Features Section */}
-      <section className="py-16 px-4 bg-white dark:bg-slate-900/50">
-        <div className="container mx-auto max-w-6xl">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Funcionalidades Principais</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {/* Feature 1 */}
-            <Card className="shadow-lg border-0 hover:shadow-xl transition-shadow">
-              <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
-                <Trophy className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Ranking de Pontuação</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-4">
-                <p className="text-sm text-muted-foreground">
-                  Sistema gamificado com pontos por presença, devocionais, competições e vitórias
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Feature 2 */}
-            <Card className="shadow-lg border-0 hover:shadow-xl transition-shadow">
-              <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
-                <Calendar className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Controle de Presença</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-4">
-                <p className="text-sm text-muted-foreground">
-                  Registro diário de presença com histórico mensal e taxa de frequência
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Feature 3 */}
-            <Card className="shadow-lg border-0 hover:shadow-xl transition-shadow">
-              <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
-                <Users className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Gestão de Alunos</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-4">
-                <p className="text-sm text-muted-foreground">
-                  Cadastro completo com faixa, telefone, data de entrada e observações
-                </p>
-              </CardContent>
-            </Card>
-
-            {/* Feature 4 */}
-            <Card className="shadow-lg border-0 hover:shadow-xl transition-shadow">
-              <CardHeader className="bg-gradient-to-br from-primary/10 to-accent/10">
-                <Zap className="w-8 h-8 text-primary mb-2" />
-                <CardTitle className="text-lg">Escala de Devocionais</CardTitle>
-              </CardHeader>
-              <CardContent className="pt-4">
-                <p className="text-sm text-muted-foreground">
-                  Agendamento de quem vai falar cada dia da semana com histórico
-                </p>
-              </CardContent>
-            </Card>
-          </div>
-        </div>
+      {/* Sobre o Projeto */}
+      <section style={{ padding: '40px 20px', maxWidth: '800px', margin: '0 auto', textAlign: 'center' }}>
+        <h2>Sobre a Nossa Missão</h2>
+        <p>Acreditamos que o Jiu-Jitsu molda o caráter, traz disciplina e saúde. Nossas aulas são totalmente gratuitas e voltadas para o desenvolvimento físico, mental e espiritual de jovens e adultos da nossa comunidade.</p>
       </section>
 
-      {/* Scoring System Section */}
-      <section className="py-16 px-4">
-        <div className="container mx-auto max-w-4xl">
-          <h3 className="text-3xl font-bold text-center mb-12 text-foreground">Sistema de Pontuação</h3>
-          <div className="grid grid-cols-1 md:grid-cols-5 gap-4">
-            {[
-              { label: "Presença", points: "+1", color: "bg-blue-100 dark:bg-blue-900" },
-              { label: "Devocional", points: "+3", color: "bg-purple-100 dark:bg-purple-900" },
-              { label: "Campeonato", points: "+5", color: "bg-amber-100 dark:bg-amber-900" },
-              { label: "Visitante", points: "+2", color: "bg-green-100 dark:bg-green-900" },
-              { label: "Vitória", points: "+10", color: "bg-accent/20" },
-            ].map((item) => (
-              <Card key={item.label} className={`${item.color} border-0 text-center`}>
-                <CardContent className="pt-6">
-                  <p className="text-sm font-semibold text-foreground mb-2">{item.label}</p>
-                  <p className="text-3xl font-bold text-primary">{item.points}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+      {/* Formulário de Interesse */}
+      <section id="cadastro" style={{ padding: '40px 20px', backgroundColor: '#fff', maxWidth: '500px', margin: '40px auto', borderRadius: '8px', boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
+        <h3 style={{ textAlign: 'center', marginBottom: '20px' }}>Demonstre seu Interesse</h3>
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
+          <input 
+            type="text" 
+            placeholder="Seu Nome Completo" 
+            required 
+            value={formData.nome}
+            onChange={(e) => setFormData({...formData, nome: e.target.value})}
+            style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
+          />
+          <input 
+            type="tel" 
+            placeholder="WhatsApp / Telefone" 
+            required 
+            value={formData.telefone}
+            onChange={(e) => setFormData({...formData, telefone: e.target.value})}
+            style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
+          />
+          <input 
+            type="number" 
+            placeholder="Sua Idade" 
+            required 
+            value={formData.idade}
+            onChange={(e) => setFormData({...formData, idade: e.target.value})}
+            style={{ padding: '10px', borderRadius: '4px', border: '1px solid #ccc' }}
+          />
+          <button type="submit" style={{ padding: '12px', backgroundColor: '#28a745', color: 'white', border: 'none', borderRadius: '4px', fontWeight: 'bold', cursor: 'pointer' }}>
+            Enviar Cadastro
+          </button>
+        </form>
       </section>
-
-      {/* CTA Section */}
-      <section className="py-16 px-4 bg-gradient-to-r from-primary to-primary/80 text-white">
-        <div className="container mx-auto max-w-2xl text-center space-y-6">
-          <h3 className="text-3xl font-bold">Comece Agora</h3>
-          <p className="text-lg text-primary-foreground/90">
-            Acesse o dashboard público para ver o ranking da sua turma ou faça login para gerenciar todos os dados
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              variant="secondary"
-              onClick={() => navigate("/dashboard")}
-              className="gap-2"
-            >
-              Ver Dashboard
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-            {!isAuthenticated && (
-              <Button
-                size="lg"
-                className="bg-white text-primary hover:bg-slate-100"
-                onClick={() => window.location.href = getLoginUrl()}
-              >
-                Login para Professores
-              </Button>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="bg-white dark:bg-slate-900 border-t border-border py-8 px-4">
-        <div className="container mx-auto text-center text-muted-foreground">
-          <p>© 2026 Sistema de Gerenciamento de Jiu-Jitsu. Todos os direitos reservados.</p>
-        </div>
-      </footer>
     </div>
   );
 }
